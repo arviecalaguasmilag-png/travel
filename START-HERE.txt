@@ -52,6 +52,8 @@ Google Maps/Uber directly and use your saved addresses or backup.
 FUTURE DEPLOYMENTS
 
 The GitHub repository is arviecalaguasmilag-png/travel, branch main.
-Railway's GitHub connection deploys updates to that branch. Dockerfile and
-railway.json contain the build and runtime setup. No API secrets are needed.
+Railway's GitHub connection deploys updates to that branch. Dockerfile defines
+the build. Runtime settings are saved in Railway: Serverless enabled,
+/health healthcheck with a 90-second timeout, and 3 On Failure restart retries.
+No API secrets are needed.
 Node 24 can preview the source with node server.mjs; tests run with node --test.
