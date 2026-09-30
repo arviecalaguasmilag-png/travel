@@ -1,0 +1,57 @@
+TRAVEL
+
+App: https://taiwan-together-production.up.railway.app
+Source: https://github.com/arviecalaguasmilag-png/travel
+
+The app is called Travel. The existing address remains the same to preserve
+your saved browser data and bookmarks.
+
+YOUR NEXT COUNTRY
+
+Choose New trip. Enter a trip name, country or region, and the time zone for
+your destination city. Add places under Saved places. Use full addresses with
+the city and country. Switch trips using Your trip; each keeps its own places.
+Edit next to the trip dropdown changes its name, country, and time zone.
+Saved places includes Edit and Remove controls for individual places.
+Your original Taiwan places are preserved in the first Taiwan trip.
+
+DIRECTIONS
+
+Choose From and To, then Bus / train, Driving, or Walking. The green button
+opens Google Maps. Open a suggested route there for its departures, service
+numbers, direction, boarding stop, and getting-off stop, where available.
+To compare Uber, use Copy destination, then Open Uber. Paste the destination
+and confirm pickup, the exact destination, fare, and waiting time before booking.
+Travel does not automatically decide the best transport option for you.
+
+SHARING AND BACKUPS
+
+Saved places > Share this trip copies that trip's settings and places to a
+link. Send it to your travel buddy. They review it and choose Add these trips.
+Edits stay on each phone until you share again. Anyone with a shared link can
+read its trip settings, names, and addresses.
+Back up all trips downloads a JSON file. Import backup restores trips as
+separate copies, keeping the trips you already have. Older Taiwan backups
+and links also work. Keep a backup before clearing browser data.
+
+ON YOUR PHONE
+
+Open the app in Safari or Chrome and use Add to Home Screen. Load it once
+online. Saved addresses and app files can work offline afterward; directions
+and ride booking need internet. The app runs without this chat or computer.
+
+COST AND HOSTING
+
+No Google Cloud API key, Google prepayment, database, or Make subscription is
+needed. Railway's free hosting allowance is finite and service can pause when
+credits are exhausted. Sleep when inactive is enabled to reduce usage.
+No paid account upgrade was requested or made for this app.
+If the site is unavailable, try reloading after a brief cold start, or open
+Google Maps/Uber directly and use your saved addresses or backup.
+
+FUTURE DEPLOYMENTS
+
+The GitHub repository is arviecalaguasmilag-png/travel, branch main.
+Railway's GitHub connection deploys updates to that branch. Dockerfile and
+railway.json contain the build and runtime setup. No API secrets are needed.
+Node 24 can preview the source with node server.mjs; tests run with node --test.

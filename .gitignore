@@ -1,0 +1,4 @@
+.env
+.railway
+node_modules
+*.log
