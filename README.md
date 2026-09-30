@@ -19,7 +19,7 @@ Local preview: `http://127.0.0.1:4174`. Production listens on Railway's `PORT`.
 
 Git remote: `https://github.com/arviecalaguasmilag-png/travel.git`
 
-Deploy branch: `main`. Railway builds the included Dockerfile. The existing service is `taiwan-together` in project `jubilant-trust`; the stable address is https://taiwan-together-production.up.railway.app. The service/domain keeps its old identifier so saved browser data stays available. The app's visible name is Travel.
+Deploy branch: `main`. Railway builds the included Dockerfile. The service is `taiwan-together` in project `jubilant-trust`; the public address is https://arvie-travel-planner.up.railway.app. The app's visible name is Travel. Browser data is specific to each domain; export a backup before changing the address again and import it at the new address.
 
 Runtime settings are saved in Railway: Serverless enabled, healthcheck `/health` with a 90-second timeout, and On Failure restart with 3 retries. `railway.json` records the same values for legacy services; this new service uses dashboard settings because Railway has deprecated that config format.
 

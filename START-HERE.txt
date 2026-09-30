@@ -1,10 +1,11 @@
 TRAVEL
 
-App: https://taiwan-together-production.up.railway.app
+App: https://arvie-travel-planner.up.railway.app
 Source: https://github.com/arviecalaguasmilag-png/travel
 
-The app is called Travel. The existing address remains the same to preserve
-your saved browser data and bookmarks.
+The app is called Travel. Use the new address above and update your bookmarks.
+Saved trips belong to each browser and website address. If you change devices
+or addresses, use a backup or a shared trip link to transfer them.
 
 YOUR NEXT COUNTRY
 
