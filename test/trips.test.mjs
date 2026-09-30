@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {DEFAULT_PLACES} from '../public/places.js';
+import {encodePlaces} from '../public/links.js';
+import {initialState,validateState,validateTrip,encodeTrip,decodeTrip,importPayload,importHash,addImportedTrips} from '../public/trips.js';
+test('Existing saved Taiwan places migrate without being replaced by defaults',()=>{const custom=[{id:'hotel',name:'Our hotel',address:'Custom address, Taipei, Taiwan',localName:'旅館'}];const state=initialState(custom);assert.deepEqual(state.trips[0].places,custom);assert.equal(state.trips[0].timeZone,'Asia/Taipei');});
+test('New countries can start empty and retain separate places',()=>{const a=initialState();const b=validateTrip({id:'japan',name:'Japan next year',country:'Japan',timeZone:'Asia/Tokyo',places:[]});const s=validateState({...a,activeTripId:'japan',trips:[...a.trips,b]});assert.equal(s.trips[1].places.length,0);assert.equal(s.trips[0].places.length,DEFAULT_PLACES.length);assert.equal(s.activeTripId,'japan');});
+test('Shared trips preserve country, time zone, and Unicode place names',()=>{const trip=validateTrip({id:'japan',name:'日本旅行',country:'Japan',timeZone:'Asia/Tokyo',places:[{id:'tokyo',name:'Tokyo Station',localName:'東京駅',address:'Tokyo Station, Tokyo, Japan'}]});assert.deepEqual(decodeTrip(encodeTrip(trip)),trip);});
+test('Legacy backup files and shared links still import as Taiwan trips',()=>{assert.equal(importPayload({version:1,places:DEFAULT_PLACES})[0].country,'Taiwan');assert.equal(importHash('#places='+encodePlaces(DEFAULT_PLACES))[0].places.length,9);});
+test('Importing a trip with an existing ID adds a copy without overwriting',()=>{const a=initialState();const result=addImportedTrips(a,[a.trips[0]],()=> 'copy');assert.equal(result.trips.length,2);assert.equal(result.activeTripId,'copy');assert.deepEqual(result.trips[0],a.trips[0]);assert.equal(a.trips.length,1);});
+test('All-trips backups round trip and reject duplicate IDs and invalid zones',()=>{const s=initialState();assert.deepEqual(importPayload(JSON.parse(JSON.stringify(s))),s.trips);assert.throws(()=>validateState({...s,trips:[s.trips[0],s.trips[0]]}));assert.throws(()=>validateTrip({...s.trips[0],timeZone:'Nowhere/Invalid'}));assert.throws(()=>decodeTrip('bad'));});
