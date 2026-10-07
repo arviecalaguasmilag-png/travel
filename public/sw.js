@@ -1,5 +1,5 @@
-const CACHE='travel-shell-v2';
-const FILES=['/','/index.html','/app.js','/links.js','/places.js','/trips.js','/styles.css','/icon.svg','/manifest.webmanifest','/privacy.html'];
+const CACHE='travel-shell-v3';
+const FILES=['/','/index.html','/app.js','/links.js','/places.js','/trips.js','/currency.js','/place-actions.js','/styles.css','/icon.svg','/manifest.webmanifest','/privacy.html'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&(k.startsWith('travel-shell-')||k.startsWith('taiwan-free-shell-'))).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',event=>{

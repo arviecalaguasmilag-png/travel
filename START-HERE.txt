@@ -13,7 +13,8 @@ Choose New trip. Enter a trip name, country or region, and the time zone for
 your destination city. Add places under Saved places. Use full addresses with
 the city and country. Switch trips using Your trip; each keeps its own places.
 Edit next to the trip dropdown changes its name, country, and time zone.
-Saved places includes Edit and Remove controls for individual places.
+Saved places includes search, Go, Edit, and Remove controls. Undo restores a
+removed place to its original trip. Search From and To by name or local name.
 Your original Taiwan places are preserved in the first Taiwan trip.
 
 DIRECTIONS
@@ -21,13 +22,12 @@ DIRECTIONS
 Choose From and To, then Bus / train, Driving, or Walking. The green button
 opens Google Maps. Open a suggested route there for its departures, service
 numbers, direction, boarding stop, and getting-off stop, where available.
-To compare Uber, use Copy destination, then Open Uber. Paste the destination
-and confirm pickup, the exact destination, fare, and waiting time before booking.
+Copy destination copies the local name and full address to share or show a local.
 Travel does not automatically decide the best transport option for you.
 
 SHARING AND BACKUPS
 
-Saved places > Share this trip copies that trip's settings and places to a
+Trip tools (the top-right three dots) > Share this trip copies settings and places to a
 link. Send it to your travel buddy. They review it and choose Add these trips.
 Edits stay on each phone until you share again. Anyone with a shared link can
 read its trip settings, names, and addresses.
@@ -39,7 +39,17 @@ ON YOUR PHONE
 
 Open the app in Safari or Chrome and use Add to Home Screen. Load it once
 online. Saved addresses and app files can work offline afterward; directions
-and ride booking need internet. The app runs without this chat or computer.
+need internet. Previously loaded currency rates work offline and show their date.
+The app runs without this chat or computer.
+
+LOCAL PRICES IN PESOS
+
+The converter suggests a currency from the trip country. You can choose another
+currency; this preference stays with the trip. Enter a local price to see PHP.
+The rate date is always displayed. Refresh rate checks for the latest available
+daily reference rate. Offline results use a saved rate; without one, the app
+shows that no rate is available. Actual bank, card, and money-changer rates and
+fees can differ. The source is Frankfurter; no API key is required.
 
 COST AND HOSTING
 
@@ -48,7 +58,7 @@ needed. Railway's free hosting allowance is finite and service can pause when
 credits are exhausted. Sleep when inactive is enabled to reduce usage.
 No paid account upgrade was requested or made for this app.
 If the site is unavailable, try reloading after a brief cold start, or open
-Google Maps/Uber directly and use your saved addresses or backup.
+Google Maps directly and use your saved addresses or backup.
 
 FUTURE DEPLOYMENTS
 
