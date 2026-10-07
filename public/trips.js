@@ -1,5 +1,6 @@
 import {DEFAULT_PLACES} from './places.js';
 import {validatePlaces,decodePlaces} from './links.js';
+import {CURRENCIES} from './currency.js';
 export const STORAGE_KEY='travel-trips-v2';
 export const LEGACY_KEY='taiwan-together-free-places-v1';
 const validId=id=>typeof id==='string'&&/^[a-zA-Z0-9-]{1,64}$/.test(id);
@@ -8,7 +9,8 @@ export function validateTrip(input){
   for(const key of ['name','country'])if(typeof input[key]!=='string'||!input[key].trim()||input[key].length>80)throw new Error('Enter a trip name and country (up to 80 characters each).');
   if(typeof input.timeZone!=='string'||input.timeZone.length>80)throw new Error('Choose a valid time zone.');
   try{new Intl.DateTimeFormat('en',{timeZone:input.timeZone});}catch{throw new Error('Choose a valid time zone.');}
-  return {id:input.id,name:input.name.trim(),country:input.country.trim(),timeZone:input.timeZone,places:validatePlaces(input.places)};
+  if(input.currency!==undefined&&!CURRENCIES.includes(input.currency))throw new Error('Choose a supported currency.');
+  return {id:input.id,name:input.name.trim(),country:input.country.trim(),timeZone:input.timeZone,places:validatePlaces(input.places),...(input.currency?{currency:input.currency}:{})};
 }
 export function initialState(legacy){return {version:2,activeTripId:'taiwan',trips:[validateTrip({id:'taiwan',name:'Taiwan trip',country:'Taiwan',timeZone:'Asia/Taipei',places:legacy??DEFAULT_PLACES})]};}
 export function validateState(input){
